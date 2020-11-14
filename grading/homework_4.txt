@@ -9,14 +9,20 @@
 [INFO] Copying 33 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ CSCI_440_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 23 source files to /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/target/classes
+[WARNING] /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java: /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java uses or overrides a deprecated API.
+[WARNING] /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ CSCI_440_Project ---
 [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO] skip non existing resourceDirectory /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ CSCI_440_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 12 source files to /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ CSCI_440_Project ---
 [INFO] 
@@ -27,8 +33,8 @@
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.095 s <<< FAILURE! - in edu.montana.csci.csci440.homework.Homework4
-[ERROR] useATransactionToSafelyMoveMillisecondsFromOneTrackToAnother  Time elapsed: 0.086 s  <<< ERROR!
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! - in edu.montana.csci.csci440.homework.Homework4
+[ERROR] useATransactionToSafelyMoveMillisecondsFromOneTrackToAnother  Time elapsed: 0.095 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.homework.Homework4.useATransactionToSafelyMoveMillisecondsFromOneTrackToAnother(Homework4.java:29)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -40,7 +46,7 @@ java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/ho
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.homework.Homework4.selectPopularTracksAndTheirAlbums(Homework4.java:69)
 
-[ERROR] selectCustomersMeetingCriteria  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] selectCustomersMeetingCriteria  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.homework.Homework4.selectCustomersMeetingCriteria(Homework4.java:87)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -59,8 +65,8 @@ Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Project
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.836 s
-[INFO] Finished at: 2020-11-12T21:29:35-07:00
+[INFO] Total time:  3.363 s
+[INFO] Finished at: 2020-11-13T17:18:14-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project CSCI_440_Project: There are test failures.
 [ERROR] 

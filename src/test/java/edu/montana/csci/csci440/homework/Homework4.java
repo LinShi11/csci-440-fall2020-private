@@ -73,10 +73,7 @@ public class Homework4 extends DBTest {
                 "    INNER JOIN tracks on tracks.TrackId = invoice_items.TrackId\n" +
                 "    INNER JOIN invoices on invoice_items.InvoiceId = invoices.InvoiceId\n" +
                 "GROUP BY tracks.TrackId\n" +
-                "HAVING 1 < count;\n" +
-                "\n" +
-                "SELECT * FROM temper\n" +
-                "GROUP BY temper.AlbumId;");
+                "HAVING 1 < count;");
         assertEquals(256, tracks.size());
 
         // HINT: join to tracks and invoice items and do a group by/having to get the right answer

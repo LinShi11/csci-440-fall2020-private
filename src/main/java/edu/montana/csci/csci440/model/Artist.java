@@ -98,7 +98,7 @@ public class Artist extends Model {
     public boolean verify() {
         _errors.clear(); // clear any existing errors
         if (name == null || "".equals(name)) {
-            addError("FirstName can't be null or blank!");
+            addError("Name can't be null or blank!");
         }
         return !hasErrors();
     }
@@ -142,6 +142,18 @@ public class Artist extends Model {
             }
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void delete() {
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "DELETE FROM artists WHERE ArtistId=?")) {
+            stmt.setLong(1, this.getArtistId());
+            stmt.executeUpdate();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
         }
     }
 

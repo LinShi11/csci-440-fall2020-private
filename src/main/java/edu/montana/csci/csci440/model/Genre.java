@@ -31,6 +31,21 @@ public class Genre extends Model {
         this.name = name;
     }
 
+    public static Genre find(Long genreId){
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM genres WHERE GenreId=?")) {
+            stmt.setLong(1, genreId);
+            ResultSet results = stmt.executeQuery();
+            if (results.next()) {
+                return new Genre(results);
+            } else {
+                return null;
+            }
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+    }
+
     public static List<Genre> all() {
         try (Connection conn = DB.connect();
              PreparedStatement stmt = conn.prepareStatement(

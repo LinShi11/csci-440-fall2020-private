@@ -10,6 +10,17 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class TracksController {
+
+    public static String searchKeyword = null;
+
+    public static void setSearchKeyword(String key){
+        searchKeyword = key;
+    }
+
+    public static String getSearchKeyword(){
+        return searchKeyword;
+    }
+
     public static void init() {
         /* CREATE */
         get("/tracks/new", (req, resp) -> {
@@ -19,7 +30,7 @@ public class TracksController {
 
         post("/tracks/new", (req, resp) -> {
             Track track = new Track();
-            Web.putValuesInto(track, "Name", "Milliseconds", "Bytes", "UnitPrice");
+            Web.putValuesInto(track, "Name", "AlbumId", "Milliseconds", "Bytes", "UnitPrice", "MediaTypeId", "GenreId");
             if (track.create()) {
                 Web.message("Created A Track!");
                 return Web.redirect("/tracks/" + track.getTrackId());
@@ -33,6 +44,21 @@ public class TracksController {
         /* READ */
         get("/tracks", (req, resp) -> {
             String search = req.queryParams("q");
+            if(Web.getResponseMessage() == ""){
+                setSearchKeyword(null);
+            }
+            else{
+                String temp = Web.getResponseMessage();
+                String temp2 = temp.split("\\{")[1];
+                String temp3 = temp2.split(":")[0];
+                if(temp3.equals("page")){
+                    search = getSearchKeyword();
+                }
+                else{
+                    setSearchKeyword(search);
+                }
+            }
+
             String orderBy = req.queryParams("o");
             List<Track> tracks;
             if (search != null) {
@@ -40,10 +66,16 @@ public class TracksController {
             } else {
                 tracks = Track.all(Web.getPage(), Web.PAGE_SIZE, orderBy);
             }
-            // TODO - implement cache of count w/ Redis
             long totalTracks = Track.count();
-            return Web.renderTemplate("templates/tracks/index.vm",
-                    "tracks", tracks, "totalTracks", totalTracks);
+            if(req.headers("HX-Request") != null) {
+                // TODO - implement cache of count w/ Redis
+                return Web.renderTemplate("templates/tracks/table.vm",
+                        "tracks", tracks, "totalTracks", totalTracks);
+            }
+            else{
+                return Web.renderTemplate("templates/tracks/index.vm",
+                        "tracks", tracks, "totalTracks", totalTracks);
+            }
         });
 
         get("/tracks/search", (req, resp) -> {

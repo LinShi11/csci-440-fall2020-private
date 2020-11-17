@@ -34,7 +34,9 @@ public class ArtistTest extends DBTest {
         artist.create();
         assertNotNull(artist.getArtistId());
 
-        assertEquals(artist.find(artist.getArtistId()), artist);
+        Artist fromDb = artist.find(artist.getArtistId());
+        assertEquals(fromDb.getName(), artist.getName());
+        assertEquals(fromDb.getArtistId(), artist.getArtistId());
     }
 
     @Test
@@ -42,7 +44,6 @@ public class ArtistTest extends DBTest {
         Artist acdc1 = Artist.find(1);
         Artist acdc2 = Artist.find(1);
         String newName = "DC/AC";
-
 
         acdc1.setName(newName);
         assertTrue(acdc1.update());

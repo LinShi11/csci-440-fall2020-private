@@ -19,7 +19,7 @@ public class Customer extends Model {
     private String email;
 
     public Employee getSupportRep() {
-         return Employee.find(supportRepId);
+        return Employee.find(supportRepId);
     }
 
     public List<Invoice> getInvoices(){

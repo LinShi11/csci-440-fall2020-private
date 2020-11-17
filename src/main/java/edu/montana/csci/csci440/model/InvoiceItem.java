@@ -1,6 +1,14 @@
 package edu.montana.csci.csci440.model;
 
+import edu.montana.csci.csci440.util.DB;
+
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class InvoiceItem extends Model {
 
@@ -10,11 +18,26 @@ public class InvoiceItem extends Model {
     BigDecimal unitPrice;
     Long quantity;
 
-    public Track getTrack() {
-        return null;
+    public InvoiceItem(){
+
     }
+
+    private InvoiceItem(ResultSet result) throws SQLException {
+        invoiceLineId = result.getLong("InvoiceLineId");
+        invoiceId = result.getLong("InvoiceId");
+        trackId = result.getLong("TrackId");
+        unitPrice = result.getBigDecimal("UnitPrice");
+        quantity = result.getLong("Quantity");
+    }
+
+    public Track getTrack() {
+        return Track.find(this.getTrackId());
+//        return null;
+    }
+
     public Invoice getInvoice() {
-        return null;
+        return Invoice.find(this.getInvoiceId());
+//        return null;
     }
 
     public Long getInvoiceLineId() {
@@ -55,5 +78,23 @@ public class InvoiceItem extends Model {
 
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
+    }
+
+    public static List<InvoiceItem> forInvoice(Long Id){
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT * FROM invoice_items WHERE InvoiceId = ?"
+             )) {
+            stmt.setLong(1, Id);
+            ResultSet results = stmt.executeQuery();
+            List<InvoiceItem> resultList = new LinkedList<>();
+            while (results.next()) {
+                resultList.add(new InvoiceItem(results));
+            }
+            return resultList;
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+
     }
 }

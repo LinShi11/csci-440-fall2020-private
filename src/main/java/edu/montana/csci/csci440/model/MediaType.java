@@ -48,4 +48,19 @@ public class MediaType extends Model {
         }
     }
 
+    public static MediaType forTrack(Long Id){
+        String query = "SELECT * FROM media_types JOIN tracks on media_types.MediaTypeId = tracks.MediaTypeId WHERE tracks.TrackId = ?";
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setLong(1, Id);
+            ResultSet results = stmt.executeQuery();
+            while (results.next()) {
+                return new MediaType(results);
+            }
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+        return null;
+    }
+
 }

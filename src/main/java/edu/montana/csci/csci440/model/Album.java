@@ -33,6 +33,10 @@ public class Album extends Model {
         artistId = artist.getArtistId();
     }
 
+    public void setArtistId(Long Id){
+        this.artistId = Id;
+    }
+
     public List<Track> getTracks() {
         return Track.forAlbum(albumId);
     }
@@ -96,17 +100,30 @@ public class Album extends Model {
 
     public static List<Album> getForArtist(Long artistId) {
         // TODO implement
-        return Collections.emptyList();
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT * FROM albums WHERE ArtistId = ? "
+             )) {
+            stmt.setLong(1, artistId);
+            ResultSet results = stmt.executeQuery();
+            List<Album> resultList = new LinkedList<>();
+            while (results.next()) {
+                resultList.add(new Album(results));
+            }
+            return resultList;
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
     }
 
     @Override
     public boolean verify() {
         _errors.clear(); // clear any existing errors
-        if (title == null ) {
-            addError("FirstName can't be null or blank!");
+        if (title == null|| "".equals(title)) {
+            addError("The title can't be null or blank!");
         }
         if (artistId == null) {
-            addError("LastName can't be null!");
+            addError("Name can't be null!");
         }
         return !hasErrors();
     }
@@ -146,6 +163,18 @@ public class Album extends Model {
             }
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void delete() {
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "DELETE FROM albums WHERE AlbumId=?")) {
+            stmt.setLong(1, this.getAlbumId());
+            stmt.executeUpdate();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
         }
     }
 

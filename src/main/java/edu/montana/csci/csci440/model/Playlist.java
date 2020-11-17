@@ -21,12 +21,13 @@ public class Playlist extends Model {
     private Playlist(ResultSet results) throws SQLException {
         name = results.getString("Name");
         playlistId = results.getLong("PlaylistId");
-    }
 
+    }
 
     public List<Track> getTracks(){
         // TODO implement, order by track name
-        return Collections.emptyList();
+        return Track.forPlayList(this.getPlaylistId());
+//        return Collections.emptyList();
     }
 
     public Long getPlaylistId() {
@@ -65,7 +66,7 @@ public class Playlist extends Model {
 
     public static Playlist find(int i) {
         try (Connection conn = DB.connect();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM playlists WHERE PlaylistId=?")) {
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM playlists WHERE PlaylistId=? ")) {
             stmt.setLong(1, i);
             ResultSet results = stmt.executeQuery();
             if (results.next()) {
@@ -78,4 +79,39 @@ public class Playlist extends Model {
         }
     }
 
+    public static class PlaylistTrack{
+
+        Long playlistId;
+        Long trackId;
+
+        public PlaylistTrack() {
+        }
+
+        private PlaylistTrack(ResultSet results) throws SQLException {
+            trackId = results.getLong("TrackId");
+            playlistId = results.getLong("PlaylistId");
+
+        }
+
+        public static List<PlaylistTrack> forTrack(Long Id) {
+            String query = "SELECT * FROM main.playlist_track WHERE TrackId=? ";
+            try (Connection conn = DB.connect();
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setLong(1, Id);
+                ResultSet results = stmt.executeQuery();
+                List<PlaylistTrack> resultList = new LinkedList<>();
+                System.out.println(results);
+                while (results.next()) {
+                    resultList.add(new PlaylistTrack(results));
+                }
+                return resultList;
+            } catch (SQLException sqlException) {
+                throw new RuntimeException(sqlException);
+            }
+        }
+    }
+
+
+
 }
+

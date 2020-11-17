@@ -1,27 +1,26 @@
-
 #parse('templates/header.vm')
 
-<h3>Albums</h3>
+<h3>Tracks <small>($!totalTracks Total)</small></h3>
+<script src="https://unpkg.com/htmx.org@0.3.0"></script>
 
-<table>
-    <thead>
-    <tr>
-        <th>Album ID</th>
-        <th>Title</th>
-    </tr>
-    </thead>
-    <tbody>
-        #foreach( $album in $albums )
-        <tr>
-            <td><a href="/albums/$album.AlbumId">$album.AlbumId</a></td>
-            <td>$!album.Title</td>
-        </tr>
-        #end
-    </tbody>
-</table>
+<div style="padding: 12px">
+    <form>
+        <b>Search </b>
+        <input type="text" placeholder="Search by track, album or artist name..."
+               name="q"
+               value="$!web.param('q')"
+        hx-get="/tracks" hx-push-url="true" hx-trigger="keyup changed delay:500ms" hx-target="#results">
+        <a href="/tracks/search">Advanced Search >></a>
+    </form>
+</div>
 
-$web.pagingWidget($albums)
+<div id="results">
+    #parse('templates/tracks/table.vm')
+</div>
 
-<a href="/albums/new">[Create New Album]</a>
+
+$web.pagingWidget($tracks)
+
+<a href="/tracks/new">[Create New Track]</a>
 
 #parse('templates/footer.vm')

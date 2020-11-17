@@ -14,7 +14,6 @@ public class EmployeeHelper {
     public static String makeEmployeeTree() {
         // TODO, change this to use a single query operation to get all employees
         List<Employee> employees = Employee.all(); // root employee
-
         Map<Long, List<Employee>> employeeMap = new HashMap<>();
         int columns = employees.size();
         int i = 0;
@@ -28,8 +27,6 @@ public class EmployeeHelper {
             employeeMap.put(employees.get(i).getEmployeeId(), empList);
             i+=1;
         }
-
-        // and use this data structure to maintain reference information needed to build the tree structure
         Employee employee = employees.get(0);
         return "<ul>" + makeTree(employee, employeeMap) + "</ul>";
     }

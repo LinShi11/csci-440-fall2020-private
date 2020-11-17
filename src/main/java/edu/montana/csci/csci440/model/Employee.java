@@ -151,6 +151,10 @@ public class Employee extends Model {
         this.reportsTo = reportsTo;
     }
 
+    public String getTitle(){
+        return this.title;
+    }
+
     public List<Employee> getReports() {
         try (Connection conn = DB.connect();
              PreparedStatement stmt = conn.prepareStatement(

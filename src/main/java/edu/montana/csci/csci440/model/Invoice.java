@@ -18,12 +18,14 @@ public class Invoice extends Model {
     String billingCountry;
     String billingPostalCode;
     BigDecimal total;
+    Long customerId;
 
     public Invoice() {
         // new employee for insert
     }
 
     private Invoice(ResultSet results) throws SQLException {
+        customerId = results.getLong("CustomerId");
         billingAddress = results.getString("BillingAddress");
         billingCity = results.getString("BillingCity");
         billingState = results.getString("BillingState");
@@ -35,10 +37,13 @@ public class Invoice extends Model {
 
     public List<InvoiceItem> getInvoiceItems(){
         //TODO implement
-        return Collections.emptyList();
+        return InvoiceItem.forInvoice(this.getInvoiceId());
+//        return Collections.emptyList();
     }
+
     public Customer getCustomer() {
-        return null;
+        return Customer.find(this.customerId);
+//        return null;
     }
 
     public Long getInvoiceId() {

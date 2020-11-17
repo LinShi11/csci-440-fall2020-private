@@ -1,5 +1,7 @@
 package edu.montana.csci.csci440.util;
 
+import edu.montana.csci.csci440.model.MediaType;
+import edu.montana.csci.csci440.model.Track;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,6 +22,7 @@ public class Web {
     public static final int PAGE_SIZE = 10;
     private static Web INSTANCE = new Web();
     static ThreadLocal<RequestInfo> INFO = new ThreadLocal<>();
+    public static String message;
 
     public static void set(Request request, Response response, long startTime) {
         INFO.set(new RequestInfo(request, response, startTime, DB.getConnectionCount()));
@@ -51,11 +54,19 @@ public class Web {
             for (String property : properties) {
                 Method method = findMethod(clazz, "set" + property);
                 if (method.getParameterTypes()[0] == Integer.class || method.getParameterTypes()[0] == Integer.TYPE) {
-                    int i = Integer.parseInt(req.queryParams(property));
-                    method.invoke(obj, i);
+                    try {
+                        int i = Integer.parseInt(req.queryParams(property));
+                        method.invoke(obj, i);
+                    }catch(NumberFormatException ex){
+
+                    }
                 } else if (method.getParameterTypes()[0] == Long.class || method.getParameterTypes()[0] == Long.TYPE) {
-                    long i = Long.parseLong(req.queryParams(property));
-                    method.invoke(obj, i);
+                    try {
+                        long i = Long.parseLong(req.queryParams(property));
+                        method.invoke(obj, i);
+                    }catch(NumberFormatException ex){
+
+                    }
                 } else if (method.getParameterTypes()[0] == Date.class) {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = formatter.parse(req.queryParams(property));
@@ -63,7 +74,9 @@ public class Web {
                 } else if (method.getParameterTypes()[0] == String.class) {
                     method.invoke(obj, req.queryParams(property));
                 } else if (method.getParameterTypes()[0] == BigDecimal.class) {
-                    method.invoke(obj, parseBigDecimal(req, property));
+                    try {
+                        method.invoke(obj, parseBigDecimal(req, property));
+                    }catch(NumberFormatException ex){}
                 } else {
                     throw new IllegalStateException("Do not know how to set value of type " + method.getParameterTypes()[0].getName());
                 }
@@ -214,7 +227,7 @@ public class Web {
         return select;
     }
 
-    public String param(String name) {
+    public static String param(String name) {
         return getRequest().queryParams(name);
     }
 
@@ -264,10 +277,20 @@ public class Web {
                 str.append(o.toString()).append(":").append(request.queryParams(o.toString()));
             }
             str.append("}");
+            setResponseMessage(str.toString());
             return str.toString();
         } else {
+            setResponseMessage("");
             return "";
         }
+    }
+
+    public static void setResponseMessage(String pre){
+        message = pre;
+    }
+
+    public static String getResponseMessage(){
+        return message;
     }
 
     private static class RequestInfo {

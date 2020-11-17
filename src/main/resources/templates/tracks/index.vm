@@ -1,46 +1,27 @@
+
 #parse('templates/header.vm')
 
-<h3>Tracks <small>($!totalTracks Total)</small></h3>
-
-<div style="padding: 12px">
-    <form>
-        <b>Search </b>
-        <input type="text" placeholder="Search by track, album or artist name..."
-               name="q"
-               value="$!web.param('q')">
-        <a href="/tracks/search">Advanced Search >></a>
-    </form>
-</div>
+<h3>Albums</h3>
 
 <table>
     <thead>
     <tr>
-        <th>Track ID</th>
-        <th>Name</th>
-        <th>Album</th>
-        <th>ArtistName</th>
-        <th><a href="?o=Milliseconds">Milliseconds</a></th>
-        <th><a href="?o=Bytes">Bytes</a></th>
-        <th>UnitPrice</th>
+        <th>Album ID</th>
+        <th>Title</th>
     </tr>
     </thead>
     <tbody>
-        #foreach( $track in $tracks )
+        #foreach( $album in $albums )
         <tr>
-            <td><a href="/tracks/$track.TrackId">$track.TrackId</a></td>
-            <td>$!track.Name</td>
-            <td>$!track.AlbumTitle</td>
-            <td>$!track.ArtistName</td>
-            <td>$!track.Milliseconds</td>
-            <td>$!track.Bytes</td>
-            <td>$!track.UnitPrice</td>
+            <td><a href="/albums/$album.AlbumId">$album.AlbumId</a></td>
+            <td>$!album.Title</td>
         </tr>
         #end
     </tbody>
 </table>
 
-$web.pagingWidget($tracks)
+$web.pagingWidget($albums)
 
-<a href="/tracks/new">[Create New Track]</a>
+<a href="/albums/new">[Create New Album]</a>
 
 #parse('templates/footer.vm')

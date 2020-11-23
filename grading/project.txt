@@ -9,14 +9,20 @@
 [INFO] Copying 34 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ CSCI_440_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 23 source files to /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/target/classes
+[WARNING] /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java: /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java uses or overrides a deprecated API.
+[WARNING] /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/main/java/edu/montana/csci/csci440/model/Employee.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ CSCI_440_Project ---
 [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO] skip non existing resourceDirectory /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ CSCI_440_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 12 source files to /home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ CSCI_440_Project ---
 [INFO] 
@@ -27,20 +33,20 @@
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.197 s <<< FAILURE! - in edu.montana.csci.csci440.model.InvoicesTest
-[ERROR] testInvoiceFieldsLoad  Time elapsed: 0.176 s  <<< ERROR!
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! - in edu.montana.csci.csci440.model.InvoicesTest
+[ERROR] testInvoiceFieldsLoad  Time elapsed: 0.083 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.InvoicesTest.testInvoiceFieldsLoad(InvoicesTest.java:20)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.InvoicesTest.testInvoiceFieldsLoad(InvoicesTest.java:20)
 
-[ERROR] testAllLoadsAllInvoices  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testAllLoadsAllInvoices  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.InvoicesTest.testAllLoadsAllInvoices(InvoicesTest.java:14)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.InvoicesTest.testAllLoadsAllInvoices(InvoicesTest.java:14)
 
-[ERROR] testPagingWorks  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testPagingWorks  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.InvoicesTest.testPagingWorks(InvoicesTest.java:27)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -53,14 +59,14 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 6, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in edu.montana.csci.csci440.model.ArtistTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in edu.montana.csci.csci440.model.ArtistTest
 [ERROR] testUpdateWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.ArtistTest.testUpdateWorks(ArtistTest.java:72)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.ArtistTest.testUpdateWorks(ArtistTest.java:72)
 
-[ERROR] testCreateWorks  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.ArtistTest.testCreateWorks(ArtistTest.java:34)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -72,7 +78,7 @@ java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/ho
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.ArtistTest.testAllLoadsAllArtists(ArtistTest.java:14)
 
-[ERROR] testPagingWorks  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testPagingWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.ArtistTest.testPagingWorks(ArtistTest.java:20)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -92,8 +98,8 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in edu.montana.csci.csci440.model.EmployeeTest
-[ERROR] testUpdateWorks  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in edu.montana.csci.csci440.model.EmployeeTest
+[ERROR] testUpdateWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testUpdateWorks(EmployeeTest.java:74)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -105,19 +111,19 @@ java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/ho
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testCreateWorks(EmployeeTest.java:40)
 
-[ERROR] testAllLoadsAllEmployees  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testAllLoadsAllEmployees  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testAllLoadsAllEmployees(EmployeeTest.java:18)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testAllLoadsAllEmployees(EmployeeTest.java:18)
 
-[ERROR] testPagingWorks  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testPagingWorks  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testPagingWorks(EmployeeTest.java:24)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testPagingWorks(EmployeeTest.java:24)
 
-[ERROR] testEmployeeHelperOnlyIssuesOneQuery  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testEmployeeHelperOnlyIssuesOneQuery  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.EmployeeTest.testEmployeeHelperOnlyIssuesOneQuery(EmployeeTest.java:86)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -141,8 +147,8 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in edu.montana.csci.csci440.model.TrackTest
-[ERROR] testAlbumNameIsStoredOnTrack  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in edu.montana.csci.csci440.model.TrackTest
+[ERROR] testAlbumNameIsStoredOnTrack  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testAlbumNameIsStoredOnTrack(TrackTest.java:92)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -160,49 +166,49 @@ java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/ho
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testDeleteWorks(TrackTest.java:47)
 
-[ERROR] testTrackListsWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testTrackListsWorks  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testTrackListsWorks(TrackTest.java:107)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testTrackListsWorks(TrackTest.java:107)
 
-[ERROR] testAllLoadsAllAlbums  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testAllLoadsAllAlbums  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testAllLoadsAllAlbums(TrackTest.java:15)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testAllLoadsAllAlbums(TrackTest.java:15)
 
-[ERROR] testUpdateWorks  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testUpdateWorks  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testUpdateWorks(TrackTest.java:74)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testUpdateWorks(TrackTest.java:74)
 
-[ERROR] testCreateWorks  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testCreateWorks(TrackTest.java:33)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testCreateWorks(TrackTest.java:33)
 
-[ERROR] testValidationWorks  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testValidationWorks  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testValidationWorks(TrackTest.java:66)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testValidationWorks(TrackTest.java:66)
 
-[ERROR] trackCountIsCachedInRedis  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] trackCountIsCachedInRedis  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.trackCountIsCachedInRedis(TrackTest.java:115)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.trackCountIsCachedInRedis(TrackTest.java:115)
 
-[ERROR] testPagingWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testPagingWorks  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testPagingWorks(TrackTest.java:21)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testPagingWorks(TrackTest.java:21)
 
-[ERROR] testArtistNameIsStoredOnTrack  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testArtistNameIsStoredOnTrack  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.TrackTest.testArtistNameIsStoredOnTrack(TrackTest.java:83)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -237,8 +243,8 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in edu.montana.csci.csci440.model.AlbumTest
-[ERROR] testAllLoadsAllAlbums  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in edu.montana.csci.csci440.model.AlbumTest
+[ERROR] testAllLoadsAllAlbums  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testAllLoadsAllAlbums(AlbumTest.java:14)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -250,19 +256,19 @@ java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/ho
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testUpdateWorks(AlbumTest.java:57)
 
-[ERROR] testCreateWorks  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testCreateWorks(AlbumTest.java:32)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testCreateWorks(AlbumTest.java:32)
 
-[ERROR] testValidationWorks  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testValidationWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testValidationWorks(AlbumTest.java:50)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testValidationWorks(AlbumTest.java:50)
 
-[ERROR] testPagingWorks  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testPagingWorks  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.AlbumTest.testPagingWorks(AlbumTest.java:20)
 Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
@@ -272,7 +278,7 @@ Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Project
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in edu.montana.csci.csci440.model.CustomerTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in edu.montana.csci.csci440.model.CustomerTest
 [ERROR] testAllLoadsAllCustomers  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Projects/msu/csci-440-fall2020/grading/scripts/repos/lin_shi/db' does not exist
 	at edu.montana.csci.csci440.model.CustomerTest.testAllLoadsAllCustomers(CustomerTest.java:14)
@@ -337,8 +343,8 @@ Caused by: java.sql.SQLException: path to 'db/chinook.db': '/home/carson/Project
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.764 s
-[INFO] Finished at: 2020-11-20T12:58:34-07:00
+[INFO] Total time:  3.474 s
+[INFO] Finished at: 2020-11-22T17:42:27-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project CSCI_440_Project: There are test failures.
 [ERROR] 
